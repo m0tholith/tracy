@@ -123,6 +123,7 @@ typedef const void* TracyCLockCtx;
 
 #define TracyCIsConnected 0
 #define TracyCIsStarted 0
+#define TracyCTime 0
 
 #define TracyCBeginSamplingProfiling() 0
 #define TracyCEndSamplingProfiling()
@@ -260,6 +261,7 @@ TRACY_API void ___tracy_emit_gpu_calibration_serial( const struct ___tracy_gpu_c
 TRACY_API void ___tracy_emit_gpu_time_sync_serial( const struct ___tracy_gpu_time_sync_data );
 
 TRACY_API int32_t ___tracy_connected(void);
+TRACY_API int64_t ___tracy_get_time(void);
 
 #ifndef TRACY_CALLSTACK
 #define TRACY_CALLSTACK 0
@@ -377,6 +379,7 @@ TRACY_API void ___tracy_custom_name_lockable_ctx( struct __tracy_lockable_contex
 #define TracyCLockCustomName( lock, name, nameSz ) ___tracy_custom_name_lockable_ctx( lock, name, nameSz );
 
 #define TracyCIsConnected ___tracy_connected()
+#define TracyCTime ___tracy_get_time()
 
 TRACY_API int ___tracy_begin_sampling_profiler( void );
 TRACY_API void ___tracy_end_sampling_profiler( void );

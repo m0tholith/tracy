@@ -5044,6 +5044,10 @@ TRACY_API int32_t ___tracy_connected( void )
 {
     return static_cast<int32_t>( tracy::GetProfiler().IsConnected() );
 }
+TRACY_API int64_t ___tracy_get_time( void )
+{
+    return static_cast<int64_t>( tracy::Profiler::GetTime() );
+}
 
 #ifdef TRACY_FIBERS
 TRACY_API void ___tracy_fiber_enter( const char* fiber ){ tracy::Profiler::EnterFiber( fiber, 0 ); }
